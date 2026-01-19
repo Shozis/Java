@@ -14,9 +14,12 @@ public class lab2 {
         double z = in.nextDouble();
 
         double r;
+        double res1 = 0;
+        double res2 = 0;
+        double res3 = 0;
         
         if (Math.pow(Math.abs(z), x * y) < 3) {
-            r = Math.sqrt(Math.abs(x) + Math.abs(y) + Math.abs(z));
+            res1 = Math.sqrt(Math.abs(x) + Math.abs(y) + Math.abs(z));
         }
         else if (Math.pow(Math.abs(z), z + y) > 4) {
             double xa = Math.sqrt(Math.abs(x));
@@ -25,15 +28,16 @@ public class lab2 {
 
             if (xa > xy){
                 if (xa > xz){
-                    r = xa;
-                } else r = xz; 
+                    res2 = xa;
+                } else res2 = xz; 
             } else if(xy > xz) {
-                r = xy;
-            } else r = xz;
+                res2 = xy;
+            } else res2 = xz;
         } else if (3 <= Math.pow(Math.abs(z), x + y) && Math.pow(Math.abs(z), x + y) <= 4) {
-            r = Math.max(x, Math.pow(y, 3)) + 3;
+            res3 = Math.max(x, Math.pow(y, 3)) + 3;
         }
 
+        r = res1 + res2 + res3; 
 
         System.out.print(r);
         in.close();
